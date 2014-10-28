@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Sweepstake form</title>
+
+<script language="javascript" type="text/javascript">
+    function processForm()
+    {
+       document.getElementById("form1").submit();
+    }
+    
+</script>
+
+
+</head>
+<body>
+<p>Sweepstake Form</p>
+<form id="form1" name="form1" action="processform.php" method="post">
+<input type="hidden" id="week" name="week" value="9"/>
+<table border="0" padding="1" cellspacing="1">
+<tr>
+    <td>Firstname</td>
+    <td><input type="text" id="firstname" name="firstname" value="firstname"></td>
+</tr>
+<tr>
+    <td>Lastname</td>
+    <td><input type="text" id="lastname" name="lastname" value="lastname"></td>
+</tr>
+<tr>
+    <td>Address</td>
+    <td><input type="text" id="address" name="address" value="address"></td>
+</tr>
+<tr>
+    <td>City</td>
+    <td><input type="text" id="city" name="city" value="city"></td>
+</tr>
+<tr>
+    <td>State</td>
+    <td><input type="text" id="state" name="state" value="state"></td>
+</tr>
+<tr>
+    <td>zipcode</td>
+    <td><input type="text" id="zipcode" name="zipcode" value="zipcode"></td>
+</tr>
+<tr>
+    <td>Email</td>
+    <td><input type="text" id="email" email="email" value="email"></td>
+</tr>
+<tr>
+    <td>Telephone</td>
+    <td><input type="text" id="telephone" name="telephone" value="telephone"></td>
+</tr>
+<tr>
+    <td>NFL optin</td>
+    <td><input type="checkbox" id="nflin" name="nflin" value="1"></td>
+</tr>
+<tr>
+    <td>Bose optin</td>
+    <td><input type="checkbox" id="bosein" name="bosein" value="1"></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><input type="button" id="btnsubmit" name="btnsubmit" onclick="javascript:processForm();" value="Submit">&nbsp;&nbsp;
+<input type="reset" value="Clear"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
