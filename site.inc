@@ -122,7 +122,7 @@ function storeSweepsstakeForm()
 		$submittedweek = cleanStringValues($_POST["week"]);
 		$ipaddress = getClientIPAddress();
 		
-		$geotarget = getGeocodeInfo("209.85.171.100");
+		$geotarget = getGeocodeInfo($ipaddress);
 		// now
 		$stmt->execute();
 		$stmt->close();
