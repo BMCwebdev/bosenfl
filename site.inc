@@ -1,5 +1,8 @@
 <?php
 require "geoplugin.inc";
+require "dao-classes.inc";
+
+
 
 function getDBConnection()
 {
@@ -32,30 +35,21 @@ function cleanStringValues($str)
 	return $str;
 }
 function getGeocodeInfo($ipAddress)
-{	//geoplugin = new geoPlugin();
-
-/* 
-Notes:
-
-The default base currency is USD (see http://www.geoplugin.com/webservices:currency ).
-You can change this before the call to geoPlugin::locate with eg:
-$geoplugin->currency = 'EUR';
-
-The default IP to lookup is $_SERVER['REMOTE_ADDR']
-You can lookup a specific IP address, by entering the IP in the call to geoPlugin::locate
-eg
-$geoplugin->locate('209.85.171.100');
-*/
-	//echo var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='."24.91.108.104")));
-
+{	
 	$geoplugin = new geoPlugin();
 	$geoplugin->locate($ipAddress);
-	// now we need the state, areacode
-	$locatedCountry = $geoplugin->countryName;
-	$locatedState = $geoplugin->region;
-	$locatedAreacode = $geoplugin->areaCode;
-	return sprintf("%s:%s:%s", $locatedCountry, $locatedState, $locatedAreacode);
+	$cClientInfo = new ClientLocationInfo();
 	
+	$cClientInfo->country = $geoplugin->countryName;
+	// now we need the state, areacode
+	$cClientInfo->state = $geoplugin->region;
+	$cClientInfo->areacode = $geoplugin->areaCode;
+	
+	// to see if it worked we check to see the country, state and areacode
+	
+	
+	
+	return $cClientInfo;
 	
 }
 function getClientIPAddress()
@@ -181,6 +175,91 @@ function doInsertTest()
 		die("fatal error");
 	}
 	$dbConnection->close();
+}
+
+
+// determine which banner....
+function calculateCorrectNFLTeamBanner()
+{
+	
+	/*
+Giants = State NY, NJ, CT
+Steelers = State PA [814,724,878,412]
+Seahawks = State WA
+Patriots = State : MA, NH, RI, ME, VT
+Dolphins = State FL [772,863,561,754,954,305,786]
+Chiefs = State KS
+Texans = State TX [936,409,281,832,713,979,361,512]
+Browns = State OH [440,216,234,330,419,567]
+Panthers = State NC,SC 
+*/
+
+	$currentIP = getClientIPAddress();
+	// we actually want to use our real ip here...
+	
+	// NH = 24.91.108.104
+	// Pittsburgh = 209.166.162.44
+	// philly = 69.242.110.29
+	$geoInformation = getGeocodeInfo("69.242.110.29");
+	print($geoInformation->toString());
+	// now how do we determine this...
+	$banner = "default";
+	if("United States" == $geoInformation->country)
+	{
+		switch($geoInformation->state)
+		{
+			//patriots
+			case "NH" :
+			case "MA" :
+			case "RI" :
+			case "ME" :
+			case "VT" :
+				$banner = "Patriots";
+				break;
+			// giants
+			case "NY" :
+			case "NJ" :
+			case "CT" :
+				$banner = "Giants";
+				break;
+			//steelers
+			case "PA" :
+				// needs to be in an areacode specified
+				if(0 < strpos("814,724,878,412",$geoInformation->areacode))
+					$banner = "Steelers";
+				break;
+			// seahawks
+			case "WA" :
+				$banner = "Seahawks";
+				break;
+			// florida (dolphins)
+			case "FL" :
+				// see if dolphins 
+				if(0 < strpos("772,863,561,754,954,305,786",$geoInformation->areacode))
+					$banner = "Dolphins";
+				break;
+			// carolina panthers
+			case "NC" :
+			case "SC" :
+				$banner = "Panthers";
+				break;
+			//  chiefs
+			case "KS" :
+				$banner = "Chiefs";
+				break;
+			// texans
+			case "TX" :
+				if(0 < strpos("936,409,281,832,713,979,361,512",$geoInformation->areacode))
+					$banner = "Texans";
+				break;
+			case "OH" :
+				if(0 < strpos("440,216,234,330,419,567",$geoInformation->areacode))
+					$banner = "Browns";
+				break;
+		}
+	}
+	print("baner=" . $banner);
+	
 }
 ?>
 
