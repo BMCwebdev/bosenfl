@@ -5,14 +5,15 @@ function getDBConnection()
 {
 	$dbhost = "localhost";
 
-	#$dbuser = "root";
+	//$dbuser = "root";
 	$dbuser = "bmcweb_bosenfl";
 	
 	$dbpwd = "bosenfl4102";
-	#$dbpwd = "mysql";
+	//$dbpwd = "mysql";
 
-	#$dbschema = "firstandgo";
+	//$dbschema = "firstandgo";
 	$dbschema = "bmcweb_bosenfl"
+	
 	// get the database connection
 	$db = new mysqli($dbhost, $dbuser, $dbpwd, $dbschema);
 	// check to see if it errored out... if it did send exception message
