@@ -12,7 +12,7 @@ function getDBConnection()
 	//$dbpwd = "mysql";
 
 	//$dbschema = "firstandgo";
-	$dbschema = "bmcweb_bosenfl"
+	$dbschema = "bmcweb_bosenfl";
 	
 	// get the database connection
 	$db = new mysqli($dbhost, $dbuser, $dbpwd, $dbschema);
