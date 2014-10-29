@@ -200,7 +200,7 @@ Panthers = State NC,SC
 	// NH = 24.91.108.104
 	// Pittsburgh = 209.166.162.44
 	// philly = 69.242.110.29
-	$geoInformation = getGeocodeInfo("69.242.110.29");
+	$geoInformation = getGeocodeInfo($currentIP);
 	print($geoInformation->toString());
 	// now how do we determine this...
 	$banner = "default";
