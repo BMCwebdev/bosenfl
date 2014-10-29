@@ -82,13 +82,14 @@ function storeSweepsstakeForm()
 	$sql = "INSERT INTO sweepstakes " .
 		"(firstname, lastname, address, city, state, zipcode, email, telephone, " .
 		"nflagreetoemail, boseagreedtoemail, submitteddate, submittedweek, " .
-		"ipaddress, geotarget) " .
-		"values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";	
+		"ipaddress, geotarget, favoriteteam) " .
+		"values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";	
 	if($stmt = $dbConn->prepare($sql))
 	{
 		// bind the params
-		$stmt->bind_param('ssssssssiissss', $firstname, $lastname, $address, $city, $state, $zipcode, $email, $telephone,
-				  $nflagreetoemail, $boseagreetoemail, $submitteddate, $submittedweek, $ipaddress, $geotarget);
+		$stmt->bind_param('ssssssssiisssss', $firstname, $lastname, $address, $city, $state, $zipcode, $email, $telephone,
+				  $nflagreetoemail, $boseagreetoemail, $submitteddate, $submittedweek,
+				  $ipaddress, $geotarget, $favoriteteam);
 		// now set the params to the post values
 		$firstname = cleanStringValues($_POST["firstname"]);
 		$lastname = cleanStringValues($_POST["lastname"]);
@@ -98,7 +99,7 @@ function storeSweepsstakeForm()
 		$zipcode = cleanStringValues($_POST["zipcode"]);
 		$email = cleanStringValues($_POST["email"]);
 		$telephone = cleanStringValues($_POST["telephone"]);
-		
+		$favoriteteam = cleanStringValues($_POST["favoriteteam"]);
 		// see if nfl is submitted it's a chcekbox so only when it is there
 		if(null != $_POST["nflin"])
 			$nflagreetoemail = 1;
