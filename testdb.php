@@ -7,13 +7,16 @@ require "site.inc";
     
 </head>
 <body>
-Here is the data : <br>
+Test Information<br>
 <div>
 <?php 
 
 // lets get geocode info
-calculateCorrectNFLTeamBanner();
-
+$ipAddress = getClientIPAddress();
+$locationInfo = getGeocodeInfo($ipAddress);
+$correctBanner = calculateCorrectNFLTeamBanner();
+print($locationInfo->toHTML());
+printf("Correct banner to show would be : %s", $correctBanner);
 ?>    
     
 </div>

@@ -46,9 +46,6 @@ function getGeocodeInfo($ipAddress)
 	$cClientInfo->areacode = $geoplugin->areaCode;
 	
 	// to see if it worked we check to see the country, state and areacode
-	
-	
-	
 	return $cClientInfo;
 	
 }
@@ -115,15 +112,15 @@ function storeSweepsstakeForm()
 		$submitteddate = date('Y-m-d H:i:s');
 		$submittedweek = cleanStringValues($_POST["week"]);
 		$ipaddress = getClientIPAddress();
-		
-		$geotarget = getGeocodeInfo($ipaddress);
+		// we store the geocode information
+		$geotarget = getGeocodeInfo($ipaddress)->toString();
 		// now
 		$stmt->execute();
 		$stmt->close();
 		
 	}else
 	{
-		 printf("Error - SQLSTATE %s.\n", $dbConn->sqlstate);
+		printf("Error - SQLSTATE %s.\n", $dbConn->sqlstate);
 		printf("Prepared statement error: %s\n", $db->error);
 		die("fatal error");
 	}
@@ -201,7 +198,6 @@ Panthers = State NC,SC
 	// Pittsburgh = 209.166.162.44
 	// philly = 69.242.110.29
 	$geoInformation = getGeocodeInfo($currentIP);
-	print($geoInformation->toString());
 	// now how do we determine this...
 	$banner = "default";
 	if("United States" == $geoInformation->country)
@@ -258,7 +254,7 @@ Panthers = State NC,SC
 				break;
 		}
 	}
-	print("baner=" . $banner);
+	return $banner;
 	
 }
 ?>

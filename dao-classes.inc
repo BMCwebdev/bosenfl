@@ -11,6 +11,10 @@ class ClientLocationInfo{
     {
         return sprintf("%s:%s:%s", $this->country, $this->state, $this->areacode);
     }
+    function toHTML()
+    {
+        return sprintf("Country : %s<br>State : %s<br>Areacode : %s<br>", $this->country, $this->state, $this->areacode);
+    }
     function isValid()
     {
         // we need to have values in country, state and areacode to be a valid "find"
