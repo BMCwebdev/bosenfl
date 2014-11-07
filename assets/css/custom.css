@@ -103,5 +103,8 @@ body {
 .main-section {
 	border-bottom: #e1e000;
 	border-bottom-style: solid;
-	border-bottom-width: 10px;
+	border-bottom-width: 2px;
+}
+.schedual img {
+	width: 100%;
 }
