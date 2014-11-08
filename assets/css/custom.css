@@ -63,7 +63,8 @@
 	max-width: 555px;
 }
 .no-padding {
-	padding: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 body {
 	background-color: #5d6973; /* layer fill content */
@@ -100,16 +101,17 @@ body {
 .form-group.checkbox-margins {
 	margin-bottom: 1px;
 }
-.main-section {
-	border-bottom: #e1e000;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
+.footer {
+	border-top: #e1e000;
+	border-top-style: solid;
+	border-top-width: 2px;
+	background-color: #212b33;
 }
 .schedual img {
 	width: 100%;
 }
-.footer {
-	background-color: #212b33;
+.schedual {
+	margin-top: 20px;
 }
 .footerbold {
 	color: #5d6973;
