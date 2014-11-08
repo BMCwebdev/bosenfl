@@ -158,7 +158,11 @@ top: -1px;
 .btn-primary.greytext {
 	color: #5d6973;
 }
-
+/*
+.radio label, .checkbox label{
+	line-height: 11.75;
+}
+*/
 
 /*
 input[type="checkbox"]:active {
