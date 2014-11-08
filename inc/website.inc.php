@@ -1,31 +1,10 @@
 <?php
-require "geoplugin.inc";
-require "dao-classes.inc";
+require "dbinfo.inc.php";
+require "geoplugin.inc.php";
+require "dao-classes.inc.php";
 
 
 
-function getDBConnection()
-{
-	$dbhost = "localhost";
-
-	//$dbuser = "root";
-	$dbuser = "bmcweb_bosenfl";
-	
-	$dbpwd = "bosenfl4102";
-	//$dbpwd = "mysql";
-
-	//$dbschema = "firstandgo";
-	$dbschema = "bmcweb_bosenfl";
-	
-	// get the database connection
-	$db = new mysqli($dbhost, $dbuser, $dbpwd, $dbschema);
-	// check to see if it errored out... if it did send exception message
-	if($db->connect_errno > 0)
-	{
-		die('Unable to connect to database [' . $db->connect_error . ']');
-	}
-	return $db;
-}
 // strip bad input from post vars
 function cleanStringValues($str)
 {
@@ -196,11 +175,11 @@ Panthers = State NC,SC
 	// we actually want to use our real ip here...
 	
 	// NH = 24.91.108.104
-	// Pittsburgh = 209.166.162.44
+	//Pittsburgh = 209.166.162.44
 	// philly = 69.242.110.29
 	$geoInformation = getGeocodeInfo($currentIP);
 	// now how do we determine this...
-	$banner = "default";
+	$banner = "nfl";
 	if("United States" == $geoInformation->country)
 	{
 		switch($geoInformation->state)
@@ -211,47 +190,50 @@ Panthers = State NC,SC
 			case "RI" :
 			case "ME" :
 			case "VT" :
-				$banner = "Patriots";
+				$banner = "patriots";
 				break;
 			// giants
 			case "NY" :
 			case "NJ" :
 			case "CT" :
-				$banner = "Giants";
+				$banner = "giants";
 				break;
 			//steelers
 			case "PA" :
 				// needs to be in an areacode specified
 				if(0 < strpos("814,724,878,412",$geoInformation->areacode))
-					$banner = "Steelers";
+					$banner = "steelers";
 				break;
 			// seahawks
 			case "WA" :
-				$banner = "Seahawks";
+				$banner = "seahawks";
 				break;
 			// florida (dolphins)
 			case "FL" :
 				// see if dolphins 
 				if(0 < strpos("772,863,561,754,954,305,786",$geoInformation->areacode))
-					$banner = "Dolphins";
+					$banner = "dolphins";
 				break;
 			// carolina panthers
 			case "NC" :
 			case "SC" :
-				$banner = "Panthers";
+				$banner = "panthers";
 				break;
 			//  chiefs
 			case "KS" :
-				$banner = "Chiefs";
+				$banner = "chiefs";
 				break;
 			// texans
 			case "TX" :
 				if(0 < strpos("936,409,281,832,713,979,361,512",$geoInformation->areacode))
-					$banner = "Texans";
+					$banner = "texans";
 				break;
 			case "OH" :
 				if(0 < strpos("440,216,234,330,419,567",$geoInformation->areacode))
-					$banner = "Browns";
+					$banner = "browns";
+				break;
+			default :
+				$banner = "nfl";
 				break;
 		}
 	}
