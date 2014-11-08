@@ -39,7 +39,7 @@ function validateForm()
             //border-color:red; border-style:solid;
             
             $(fieldName + "Label").css('border-color', 'RED').css('border-style','solid');
-           
+           //$(fieldName).css("outline","1px").css("solid", "#1e5180");
             
         }
         else

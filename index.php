@@ -42,7 +42,13 @@ require realpath("./inc/website.inc.php");
 				<img src="assets/images/header_text/header_week11.png" />
 			</div>
 			<div class="header_teams col-sm-6 col-xs-12">
-				<img src="assets/images/header_teams/nfl.png" alt="nfl" />
+				<!--<img src="assets/images/header_teams/nfl.png" alt="nfl" />-->
+				<?php
+				
+				$banner = calculateCorrectNFLTeamBanner();
+				print(sprintf('<img src="assets/images/header_teams/%s.png" alt="%s" />',$banner,$banner));
+				
+				?>
 			</div>
 		</div>
 		
