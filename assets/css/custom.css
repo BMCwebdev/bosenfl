@@ -102,8 +102,31 @@ body {
 #firstandgotextbreak {
 	display: none;
 }
-
-
+.btn-primary {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px; /* border radius */
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box; /* prevents bg color from leaking outside the border */
+	background-color: #e1e100; /* layer fill content */
+	width: 150px;
+	font-family: "bose_gothic_screenBlkOb";
+	font-size: 21px;
+	border-color: #e1e100
+}
+.btn-primary:hover {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px; /* border radius */
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box; /* prevents bg color from leaking outside the border */
+	background-color: #ffff04; /* layer fill content */
+	width: 150px;
+	font-family: "bose_gothic_screenBlkOb";
+	font-size: 21px;
+}
 
 
 
@@ -130,7 +153,11 @@ body {
 .schedual.mobile img {
 	display: block;
 	}
+.extra-15-pad {
+	padding-bottom: 15px;
+	}
 }
+
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (min-width : 480px) and (max-width : 767px) {
@@ -146,7 +173,11 @@ body {
 .schedual.mobile img {
 	display: none;
 	}
+.extra-15-pad {
+	padding-bottom: 15px;
+	}
 }
+
 
     /* Small Devices, Tablets */
     @media only screen and (min-width : 768px) and (max-width : 991px) {
@@ -162,7 +193,17 @@ body {
 .schedual.mobile img {
 	display: none;
 	}
+.extra-15-pad {
+	padding-bottom: 0px;
+	}
+.intro-text h1 {
+	font-size: 31px;
+	}
+.intro-text h5 {
+	font-size: 18px;
+	}
 }
+
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) and (max-width : 1199px) {
@@ -178,7 +219,11 @@ body {
 .schedual.mobile img {
 	display: none;
 	}
+.extra-15-pad {
+	padding-bottom: 0px;
+	}
 }
+
 
     /* Large Devices, Wide Screens */
     @media only screen and (min-width : 1200px) {
@@ -194,6 +239,12 @@ body {
 .schedual.mobile img {
 	display: none;
 	}
+.extra-15-pad {
+	padding-bottom: 0px;
+	}
+}
+.header {
+    -moz-border-image: url('../images/top-border.png') 0 0 27 0 stretch stretch;
 }
 
 
@@ -209,5 +260,19 @@ body {
 	}
 .schedual.mobile img {
 	display: block;
+	}
+}
+
+	@media only screen and (min-width : 1px) and (max-width : 486px ) {
+.intro-text h1 {
+	font-size: 31px;
+	}
+.intro-text h5 {
+	font-size: 18px;
+	}
+}
+	@media only screen and (min-width : 1340px) and (max-width : 99999px) {
+	.form_area {
+		max-width: 87%;
 	}
 }

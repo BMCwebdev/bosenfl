@@ -36,10 +36,10 @@
 
 		<div class="header col-xs-12">
 			<div class="header_text desktop col-sm-6 col-xs-12">
-				<img src="assets/images/header_text/header_week11.png" />
+				<img src="assets/images/header_text/header_week11_wider.png" />
 			</div>
 			<div class="header_text mobile col-sm-6 col-xs-12">
-				<img src="assets/images/header_text/header_week11_mobile.png" />
+				<img src="assets/images/header_text/header_week11_wider.png" />
 			</div>
 			<div class="header_teams col-sm-6 col-xs-12">
 				<img src="assets/images/header_teams/nfl.png" alt="nfl" />
@@ -48,23 +48,23 @@
 		
 		<div class="main-section col-xs-12">
 			<div class="form-column col-sm-6 col-xs-12">
-					<div class="intro-text no-padding col-xs-12">
-						<h1>It's First and <span id="firstandgotextbreak">&nbsp;</span>Go time!</h1>
+					<div class="intro-text col-xs-12">
+						<h1>It's First and Go time!</h1>
 						<h5>Enter now for a chance to win NFL tickets and Bose&#174; headphones. Hurry up because the clock is running!  We&rsquo;ll be drawing winners soon.</h5>
 					</div>
 					<div><img src="assets/images/spacer.gif" alt="spacer" width="1" height="20" /></div>
-					<div id="form-padding" class="form_area col-xs-12">
+					<div class="form_area col-xs-12"> <!-- id="form-padding" took out, maybe not looking right-->
 					  <form role="form" class="form-horizontal">
 					    <div class="form-group">
-					      <div class="col-sm-6 col-xs-12"><input class="form-control" id="FirstName" placeholder="*First Name" type="FirstName"></div>
+					      <div class="col-sm-6 col-xs-12 extra-15-pad"><input class="form-control" id="FirstName" placeholder="*First Name" type="FirstName"></div>
 					      <div class="col-sm-6 col-xs-12"><input class="form-control" id="LastName" placeholder="*Last Name" type="LastName"></div>
 					    </div>
 					    <div class="form-group">
 					      <div class="col-sm-12"><input class="form-control" id="Street" placeholder="*Street" type="Street"></div>
 					    </div>
 					    <div class="form-group">
-					      <div class="col-sm-4"><input class="form-control" id="City" placeholder="*City" type="City"></div>
-					      <div class="col-sm-4">
+					      <div class="col-sm-4 extra-15-pad"><input class="form-control" id="City" placeholder="*City" type="City"></div>
+					      <div class="col-sm-4 extra-15-pad">
 					      	<select class="form-control">
 							    <option value="">*State</option>
 							    <option value="two">Two</option>
@@ -76,11 +76,11 @@
 					      <div class="col-sm-4"><input class="form-control" id="ZipCode" placeholder="Zip Code" type="ZipCode"></div>
 					    </div>
 					    <div class="form-group">
-					      <div class="col-sm-6 col-xs-12"><input class="form-control" id="Email" placeholder="*Email Address" type="Email"></div>
+					      <div class="col-sm-6 col-xs-12 extra-15-pad"><input class="form-control" id="Email" placeholder="*Email Address" type="Email"></div>
 					      <div class="col-sm-6 col-xs-12"><input class="form-control" id="EmailConfirm" placeholder="*Confirm Email Address" type="EmailConfirm"></div>
 					    </div>
 					    <div class="form-group">
-					      <div class="col-sm-6 col-xs-12"><input class="form-control" id="Telephone" placeholder="*Telephone Nmber" type="Telephone"></div>
+					      <div class="col-sm-6 col-xs-12 extra-15-pad"><input class="form-control" id="Telephone" placeholder="*Telephone Nmber" type="Telephone"></div>
 					      <div class="col-sm-6 col-xs-12">
 					      	<select class="form-control">
 							    <option value="">*Pick Your Team</option>
@@ -118,6 +118,15 @@
 							      <input type="checkbox"> Sign me up for promotional emails, newsletters, and similar communications from the NFL.
 							    </label>
 						    </div>
+					    </div>
+					    <div class="form-group">
+					      <div class="col-xs-12" style="padding-top:15px;"><img src="assets/images/captcha.png" alt="captcha" width="150" height="50"></div>
+					    </div>
+					    <div class="form-group">
+					      <div class="col-xs-12"><input class="form-control" id="captcha" placeholder="**Please type the characters above in this box" type="captcha"></div>
+					    </div>
+					    <div class="form-group">
+					      <div class="col-xs-12"><button type="button" class="btn btn-primary">GO!</button></div>
 					    </div>
 					  </form>
 					</div>
