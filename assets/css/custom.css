@@ -155,6 +155,9 @@ top: -1px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(225, 224, 0, 1);
     outline: 0 none;
 }
+.btn-primary.greytext {
+	color: #5d6973;
+}
 
 
 /*
