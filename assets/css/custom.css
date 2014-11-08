@@ -157,7 +157,14 @@ top: -1px;
 }
 
 
-
+/*
+input[type="checkbox"]:active {
+    color: red;
+    background: red;
+	background-color: red;
+	outline: 1px solid red;
+}
+*/
 
 
 
