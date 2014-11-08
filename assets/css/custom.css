@@ -124,6 +124,12 @@ body {
 .header_text.desktop img {
 	display: none;
 	}
+.schedual.desktop img {
+	display: none;
+	}
+.schedual.mobile img {
+	display: block;
+	}
 }
 
     /* Extra Small Devices, Phones */ 
@@ -132,6 +138,12 @@ body {
 	display: block;
 	}
 .header_text.desktop img {
+	display: none;
+	}
+.schedual.desktop img {
+	display: block;
+	}
+.schedual.mobile img {
 	display: none;
 	}
 }
@@ -144,6 +156,12 @@ body {
 .header_text.desktop img {
 	display: block;
 	}
+.schedual.desktop img {
+	display: block;
+	}
+.schedual.mobile img {
+	display: none;
+	}
 }
 
     /* Medium Devices, Desktops */
@@ -153,6 +171,12 @@ body {
 	}
 .header_text.desktop img {
 	display: block;
+	}
+.schedual.desktop img {
+	display: block;
+	}
+.schedual.mobile img {
+	display: none;
 	}
 }
 
@@ -164,6 +188,12 @@ body {
 .header_text.desktop img {
 	display: block;
 	}
+.schedual.desktop img {
+	display: block;
+	}
+.schedual.mobile img {
+	display: none;
+	}
 }
 
 
@@ -171,5 +201,13 @@ body {
 	@media only screen and (min-width : 768px) and (max-width : 884px) {
 	#firstandgotextbreak {
 		display: block;
+	}
+}
+    @media only screen and (min-width : 768px) and (max-width : 985px) {
+.schedual.desktop img {
+	display: none;
+	}
+.schedual.mobile img {
+	display: block;
 	}
 }
