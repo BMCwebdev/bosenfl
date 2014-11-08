@@ -1,5 +1,5 @@
 <?php
-require "site.inc";
+require realpath("./inc/website.inc.php");
 ?>
 <html>
 <head>
@@ -17,6 +17,7 @@ $locationInfo = getGeocodeInfo($ipAddress);
 $correctBanner = calculateCorrectNFLTeamBanner();
 print($locationInfo->toHTML());
 printf("Correct banner to show would be : %s", $correctBanner);
+getJSONData();
 ?>    
     
 </div>

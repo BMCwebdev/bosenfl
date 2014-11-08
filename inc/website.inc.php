@@ -1,31 +1,10 @@
 <?php
-require "geoplugin.inc";
-require "dao-classes.inc";
+require "dbinfo.inc.php";
+require "geoplugin.inc.php";
+require "dao-classes.inc.php";
 
 
 
-function getDBConnection()
-{
-	$dbhost = "localhost";
-
-	//$dbuser = "root";
-	$dbuser = "bmcweb_bosenfl";
-	
-	$dbpwd = "bosenfl4102";
-	//$dbpwd = "mysql";
-
-	//$dbschema = "firstandgo";
-	$dbschema = "bmcweb_bosenfl";
-	
-	// get the database connection
-	$db = new mysqli($dbhost, $dbuser, $dbpwd, $dbschema);
-	// check to see if it errored out... if it did send exception message
-	if($db->connect_errno > 0)
-	{
-		die('Unable to connect to database [' . $db->connect_error . ']');
-	}
-	return $db;
-}
 // strip bad input from post vars
 function cleanStringValues($str)
 {
