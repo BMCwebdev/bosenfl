@@ -175,7 +175,7 @@ body {
 .twitter-button-div.col-sm-6 {
 	width: 55%;
 }
-.or.col-sm-2 {
+.or-div.col-sm-2 {
 	width: 10%;
 }
 .button-margins {
@@ -192,7 +192,7 @@ body {
 	width: 100%;
 	max-width: 300px;
 }
-.or {
+.or-div {
 	text-align: center;
 	color: #5d6973;
 	font-family: "bose_gothic_screenoblique";
@@ -200,18 +200,18 @@ body {
 	line-height: 60px;
 }
     @media only screen and (min-width : 320px) and (max-width : 479px) {
-		.or {
+		.or-div {
     font-size: 18px;
 	}
 }
     @media only screen and (min-width : 480px) and (max-width : 767px) {
-		.or {
+		.or-div {
     font-size: 20px;
 	}
 }
 
 	@media only screen and (min-width : 768px) and (max-width : 991px) {
-		.or {
+		.or-div {
     font-size: 22px;
 	}
 }
