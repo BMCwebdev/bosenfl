@@ -1,5 +1,278 @@
+body {
+		background-color: #12161b;
+}
+.background {
+	background-image: url(../images/backgroundformsmaller.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+/* 	background-size: contain;  -------moved to @media below */
+	height:100%;
+	width: 100%;
+	background-color: #12161b;
+}
+
+
+ /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) and (max-width : 479px) {
+	.facbook-button-div img {
+		float: none;
+	}
+	
+	.twitter-button-div img {
+		float: none;
+	}
+	.background {
+    background-size: cover;
+	}
+	.overlay-header-desktop {
+		display: none;
+	}
+	.overlay-header-mobile {
+		display: block;
+	}
+}
+
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) and (max-width : 767px) {
+	.facbook-button-div img {
+		float: none;
+	}
+	
+	.twitter-button-div img {
+		float: none;
+	}
+	.background {
+    background-size: contain;
+	}
+	.overlay-header-desktop {
+		display: block;
+	}
+	.overlay-header-mobile {
+		display: none;
+	}
+}
+
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) and (max-width : 991px) {
+	.facbook-button-div img {
+		float: right;
+	}
+	
+	.twitter-button-div img {
+		float: left;
+	}
+	.background {
+    background-size: contain;
+	}
+	.overlay-header-desktop {
+		display: block;
+	}
+	.overlay-header-mobile {
+		display: none;
+	}
+}
+
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) and (max-width : 1199px) {
+	.facbook-button-div img {
+		float: right;
+	}
+	
+	.twitter-button-div img {
+		float: left;
+	}
+	.background {
+    background-size: contain;
+	}
+	.overlay-header-desktop {
+		display: block;
+	}
+	.overlay-header-mobile {
+		display: none;
+	}
+}
+
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+	.facbook-button-div img {
+		float: right;
+	}
+	
+	.twitter-button-div img {
+		float: left;
+	}
+	.background {
+    background-size: contain;
+	}
+	.overlay-header-desktop {
+		display: block;
+	}
+	.overlay-header-mobile {
+		display: none;
+	}
+}
+
+
+
+
+
 .overlay-main-section {
-	background-image: url(/assets/images/lines-bg.png);
+	background-image: url(/assets/images/stripes2.gif);
 	background-repeat: repeat;
-	background-color: red;
+	background-color: white;
+}
+.overlay-header-desktop img {
+	width: 100%;
+}
+.overlay-header-mobile img {
+	width: 100%;
+}
+.overlay-text p {
+	color: #5d6973;
+	font-family: "bose_gothic_screenoblique";
+	font-size: 26px;
+	margin-left: 8%;
+}
+.overlay-header-mobile.overlay-text p {
+	font-family: "bose_gothic_screenBlkOb";
+}
+    @media only screen and (min-width : 320px) and (max-width : 479px) {
+	.overlay-text p {
+    font-size: 16px;
+	}
+}
+    @media only screen and (min-width : 480px) and (max-width : 767px) {
+	.overlay-text p {
+    font-size: 18px;
+	}
+}
+
+	@media only screen and (min-width : 768px) and (max-width : 991px) {
+	.overlay-text p {
+    font-size: 22px;
+	}
+}
+
+.overlay-text .fineprint{
+	color: #5d6973;
+	font-family: "bose_gothic_screenoblique";
+	font-size: 16px;
+}
+.btn.facebook {
+	background-image: url(../images/overlay/facebook-button.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.facbook-button-div.col-sm-6 {
+	width: 55%;
+}
+.twitter-button-div.col-sm-6 {
+	width: 55%;
+}
+.or.col-sm-2 {
+	width: 10%;
+}
+.button-margins {
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-top: 20px;
+}
+.facbook-button-div img {
+	width: 100%;
+	max-width: 300px;
+}
+
+.twitter-button-div img {
+	width: 100%;
+	max-width: 300px;
+}
+.or {
+	text-align: center;
+	color: #5d6973;
+	font-family: "bose_gothic_screenoblique";
+	font-size: 25px;
+	line-height: 60px;
+}
+    @media only screen and (min-width : 320px) and (max-width : 479px) {
+		.or {
+    font-size: 18px;
+	}
+}
+    @media only screen and (min-width : 480px) and (max-width : 767px) {
+		.or {
+    font-size: 20px;
+	}
+}
+
+	@media only screen and (min-width : 768px) and (max-width : 991px) {
+		.or {
+    font-size: 22px;
+	}
+}
+
+
+.overlay-main-section {
+    border-image: url("../images/top-border2.png") 24 0 0 0 fill repeat repeat;
+    border-style: solid;
+    border-width: 24px 0 0;
+    top: -1px;
+    
+}
+.players {
+	z-index: 10;
+}
+.playersimg {
+	float: right;
+	width: 100%;
+	max-width: 628px;
+	padding-top: 5%;
+}
+.no-padding {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.overlay-logos {
+	margin-top: 25%;
+}
+.overlay-logos img {
+	width: 100%;
+	max-width: 204px;
+	position: relative;
+	bottom: 0;
+}
+.yellow-line img {
+    bottom: 200%;
+    left: -25%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.yellow-line {
+	position: relative;
+	bottom: 50px;
+}
+.overlay-footer img {
+	width: 100%;
+}
+.overlay-footer {
+	padding-top: 10%;
+}
+.overlay-main-section {
+	margin: 25%;
+}
+.background {
+	display: block; 
+}
+
+.overlay-main-section {
+    margin-left: 5%;
+    margin-top: 5%;
+    max-width: 90%;
+    margin-bottom: 5%;
 }
