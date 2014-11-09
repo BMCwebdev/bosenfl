@@ -174,17 +174,19 @@ body {
 }
 
 .facbook-button-div.col-sm-6 {
-	width: 54%;
+	width: 52%;
 }
 .twitter-button-div.col-sm-6 {
-	width: 54%;
+	width: 52%;
 }
 .or.col-sm-2 {
-	width: 12%;
+	width: 16%;
 }
 .button-margins {
+/*
 	margin-left: 5%;
 	margin-right: 5%;
+*/
 	padding-top: 20px;
 }
 .facbook-button-div img {
