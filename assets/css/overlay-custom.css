@@ -276,3 +276,6 @@ body {
     max-width: 90%;
     margin-bottom: 5%;
 }
+ label {
+    line-height: 11.67;
+}
