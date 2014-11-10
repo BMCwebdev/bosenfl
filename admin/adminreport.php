@@ -6,7 +6,6 @@ require realpath("../inc/website.inc.php");
 <title>User Enrollment Report</title>
 
 <script language="javascript" type="text/javascript" src="/assets/js/jquery-2.1.1.min.js"></script>
-<script language="javascript" type="text/javascript" src="/assets/js/jquery.dynatable.js"></script>
 <script language="javascript"  type="text/javascript">
     
  $(document).ready(function(){
