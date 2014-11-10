@@ -22,7 +22,7 @@ function getDBConnection()
 	    $dbhost = "db00.perfectprize.com";
 	    $dbuser = "web";
 	    $dbpwd = "thpffffft";
-	    $dbschema = "bosetakeithome";
+	    $dbschema = "bosefirstandgo";
 	break;
     }
     
