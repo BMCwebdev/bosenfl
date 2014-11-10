@@ -113,7 +113,9 @@ body {
 	width: 150px;
 	font-family: "bose_gothic_screenBlkOb";
 	font-size: 21px;
-	border-color: #e1e100
+	border-color: #e1e100;
+	margin-bottom: 10px;
+    margin-top: 7px;
 }
 .btn-primary:hover {
 	-moz-border-radius: 3px;
@@ -125,7 +127,8 @@ body {
 	background-color: #ffff04; /* layer fill content */
 	width: 150px;
 	font-family: "bose_gothic_screenBlkOb";
-	font-size: 21px;
+	margin-bottom: 10px;
+    margin-top: 7px;
 }
 
 .main-section {
@@ -172,7 +175,11 @@ input[type="checkbox"]:active {
 	outline: 1px solid red;
 }
 */
-
+.processingresult {
+    color: #e1e000 !important;
+    font-family: "bose_gothic_screenMdOb";
+    font-size: 24px;
+}
 
 
 
@@ -241,6 +248,9 @@ input[type="checkbox"]:active {
 .intro-text h5 {
 	font-size: 18px;
 	}
+.processingresult {
+    font-size: 18px;
+	}
 }
 
 
@@ -304,6 +314,9 @@ input[type="checkbox"]:active {
 	}
 .intro-text h5 {
 	font-size: 18px;
+	}
+.processingresult {
+    font-size: 18px;
 	}
 }
 	@media only screen and (min-width : 1340px) and (max-width : 99999px) {

@@ -1,10 +1,12 @@
-function isValidEmail(email) {
+function isValidEmail(email)
+{
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
 function getHumanVerification()
 {
     $.ajax({
+            async : false,
             type: 'get',
             url: 'humancode.php',
             //data: $("#form1").serialize(),
@@ -54,7 +56,7 @@ function validateForm()
         {
             //border-color:red; border-style:solid;
             valid = false;
-            $(fieldName + "Label").css('border-bottom','2px solid red');
+            $(fieldName + "Label").css({"border-bottom":"2px solid red", "margin-bottom":"-2px",  "padding-left":"0px", "margin-left":"15px",  "padding-right":"0px", "margin-right":"15px", "width":"95%"});
            //$(fieldName).css("outline","1px").css("solid", "#1e5180");
             
         }
