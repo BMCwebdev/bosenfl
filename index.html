@@ -30,6 +30,23 @@
     <!-- promosis js artifacts -->
     <script src="assets/js/jquery-2.1.1.min.js" type="text/javascript" language="javascript"></script>
     <script src="assets/js/website.common.js" type="text/javascript" language="javascript"></script>
+    <script language="javascript" type="text/javascript">
+   
+   $( document ).ready(function() {
+    $.ajax({
+            type: 'post',
+            url: 'nflbanner.php',
+            //data: $("#form1").serialize(),
+            success: function (data) {
+	        var image = document.getElementById("nflbanner");
+		image.src = "assets/images/header_teams/" + data +".png";
+            }
+        });
+    
+    
+});   
+      
+    </script>
   </head>
   
   <style>
@@ -49,7 +66,7 @@
 				<img src="assets/images/header_text/header_week11_wider.png" />
 			</div>
 			<div class="header_teams col-sm-6 col-xs-12">
-				<img src="assets/images/header_teams/nfl.png" alt="nfl" />
+				<img id="nflbanner" name="nflbanner" src="assets/images/header_teams/nfl.png" alt="nfl" />
 			</div>
 		</div>
 		
