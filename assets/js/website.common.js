@@ -78,6 +78,7 @@ function validateForm()
             data: $("#form1").serialize(),
             success: function (data) {
                 $("#processingresult").html("You successfully submitted your entry -- good luck!");
+				$("#processingresult").css({"color":"#e1e000", "font-family":"bose_gothic_screenMdOb", "font-size":"24px", "display":"inline-block"})
                 document.getElementById("form1").reset();
                 // we reset the form
             }

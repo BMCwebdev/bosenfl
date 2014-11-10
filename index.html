@@ -31,6 +31,12 @@
     <script src="assets/js/jquery-2.1.1.min.js" type="text/javascript" language="javascript"></script>
     <script src="assets/js/website.common.js" type="text/javascript" language="javascript"></script>
   </head>
+  
+  <style>
+	  .processingresult {
+		  color: red;
+	  }
+	  </style>
 
   <body>
     <div>
@@ -211,8 +217,13 @@
 					      <div class="col-xs-12"><input class="form-control" id="captcha" placeholder="**Please type the characters above in this box" type="captcha"></div>
 					    </div>
 					    <div class="form-group">
-					      <div class="col-xs-12"><button type="button" class="btn btn-primary greytext" onclick="javascript:validateForm();">GO!</button>
-					      <div id="processingresult" style="color:black"></div>
+					      <div class="col-xs-12">
+						      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="padding-left: 0px;">
+							      <button type="button" class="btn btn-primary greytext" onclick="javascript:validateForm();">GO!</button>
+						      </div>
+						      <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12" style="padding-left: 0px;">
+							      <div id="processingresult"></div>
+						      </div>
 					      </div>
 					    </div>
 					  </form>
