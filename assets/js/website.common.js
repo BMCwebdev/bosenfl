@@ -8,7 +8,7 @@ function getHumanVerification()
     $.ajax({
             async : false,
             type: 'get',
-            url: 'humancode.php',
+            url: '/humancode.php',
             //data: $("#form1").serialize(),
             success: function (data) {
 	        var image = document.getElementById("humanverify");
@@ -87,7 +87,7 @@ function validateForm()
     $.ajax({
             async : false,
             type: 'post',
-            url: 'humancheck.php',
+            url: '/humancheck.php',
             data: { humancode : $("#captcha").val()},
             success: function (data) {
                 if (0 < data.indexOf("OK")) {
@@ -109,7 +109,7 @@ function validateForm()
         $.ajax({
                 async : false,
                 type: 'post',
-                url: 'procweek.php',
+                url: '/procweek.php',
                 data: $("#form1").serialize(),
                 success: function (data) {
                     
