@@ -9,7 +9,7 @@ require realpath("../inc/website.inc.php");
 <script language="javascript"  type="text/javascript">
     
  $(document).ready(function(){
-    alert("showing data");
+    //alert("showing data");
   });   
 </script>
 </head>    
