@@ -105,16 +105,19 @@ function storeSweepsstakeForm()
 	$dbConn = getDBConnection();
 	// sql statement...
 	$sql = "INSERT INTO sweepstakes " .
-		"(firstname, lastname, address, city, state, zipcode, email, telephone, " .
-		"nflagreetoemail, boseagreedtoemail, submitteddate, submittedweek, " .
-		"ipaddress, geotarget, favoriteteam) " .
-		"values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";	
+		"(firstname, lastname, address, city, state, " .
+		"zipcode, email, telephone, nflagreetoemail, boseagreedtoemail, " .
+		"submitteddate, submittedweek, ipaddress, geotarget, favoriteteam, " .
+		"bannerdisplayed, browser) " .
+		"values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";	
 	if($stmt = $dbConn->prepare($sql))
 	{
 		// bind the params
-		$stmt->bind_param('ssssssssiisssss', $firstname, $lastname, $address, $city, $state, $zipcode, $email, $telephone,
-				  $nflagreetoemail, $boseagreetoemail, $submitteddate, $submittedweek,
-				  $ipaddress, $geotarget, $favoriteteam);
+		$stmt->bind_param('ssssssssiisssssss',
+				  $firstname, $lastname, $address, $city, $state,
+				  $zipcode, $email, $telephone,$nflagreetoemail, $boseagreetoemail,
+				  $submitteddate,$submittedweek,$ipaddress, $geotarget, $favoriteteam,
+				  $banner,$browser);
 		// now set the params to the post values
 		$firstname = cleanStringValues($_POST["firstname"]);
 		$lastname = cleanStringValues($_POST["lastname"]);
@@ -140,9 +143,20 @@ function storeSweepsstakeForm()
 		$ipaddress = getClientIPAddress();
 		// we store the geocode information
 		$geotarget = getGeocodeInfo($ipaddress)->toString();
+		// get displayed banner
+		$banner = calculateCorrectNFLTeamBanner();
+		
+		// get browser info
+		$browser = $_SERVER['HTTP_USER_AGENT'];
 		// now
+		try
+		{
 		$stmt->execute();
 		$stmt->close();
+		}catch(exception $ex)
+		{
+			print("Error : " . $ex->error);
+		}
 		
 	}else
 	{
