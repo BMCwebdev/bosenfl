@@ -72,7 +72,7 @@ function storeSweepsstakeForm()
 		// now set the params to the post values
 		$firstname = cleanStringValues($_POST["firstname"]);
 		$lastname = cleanStringValues($_POST["lastname"]);
-		$address = cleanStringValues($_POST["address"]);
+		$address = cleanStringValues($_POST["street"]);
 		$city = cleanStringValues($_POST["city"]);
 		$state = cleanStringValues($_POST["state"]);
 		$zipcode = cleanStringValues($_POST["zipcode"]);
@@ -80,12 +80,12 @@ function storeSweepsstakeForm()
 		$telephone = cleanStringValues($_POST["telephone"]);
 		$favoriteteam = cleanStringValues($_POST["favoriteteam"]);
 		// see if nfl is submitted it's a chcekbox so only when it is there
-		if(null != $_POST["nflin"])
+		if(isset($_POST["cboEmailNFL"]))
 			$nflagreetoemail = 1;
 		else
 			$nflagreetoemail = 0;
 		// see if bose is submited it's a checkbox so only when it is there
-		if(null != $_POST["bosein"])
+		if(isset($_POST["cboEmailBose"]))
 			$boseagreetoemail = 1;
 		else
 			$boseagreetoemail = 0;
