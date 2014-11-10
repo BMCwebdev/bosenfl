@@ -56,7 +56,7 @@ function validateForm()
         {
             //border-color:red; border-style:solid;
             valid = false;
-            $(fieldName + "Label").css({"border-bottom":"2px solid red", "margin-bottom":"-2px",  "padding-left":"0px", "margin-left":"15px",  "padding-right":"0px", "margin-right":"15px", "width":"65%"});
+            $(fieldName + "Label").css({"border-bottom":"2px solid red", "margin-bottom":"-2px",  "padding-left":"0px", "margin-left":"15px",  "padding-right":"0px", "margin-right":"15px", "width":"100%", "max-width":"285px"});
            //$(fieldName).css("outline","1px").css("solid", "#1e5180");
             
         }
