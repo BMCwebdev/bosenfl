@@ -2,7 +2,18 @@ function isValidEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
-
+function getHumanVerification()
+{
+    $.ajax({
+            type: 'get',
+            url: 'humancode.php',
+            //data: $("#form1").serialize(),
+            success: function (data) {
+	        var image = document.getElementById("humanverify");
+		image.src = data;
+            }
+        });
+}
 function validateForm()
 {
     
@@ -71,18 +82,42 @@ function validateForm()
     }
   }
   if (valid) {
-    //alert("ready to submit");
     $.ajax({
+            async : false,
             type: 'post',
-            url: 'procweek.php',
-            data: $("#form1").serialize(),
+            url: 'humancheck.php',
+            data: { humancode : $("#captcha").val()},
             success: function (data) {
-                $("#processingresult").html("You successfully submitted your entry -- good luck!");
-                document.getElementById("form1").reset();
-                // we reset the form
+                if (0 < data.indexOf("OK")) {
+                    $(fieldName + "Label").css('border-bottom','none');
+                    valid = true;
+                }else
+                {
+                    valid = false;
+                    $("#captcha").css('border-bottom','2px solid red');
+                }
             }
         });
-        //return$valid;
+    
+    //alert("ready to submit");
+    if (valid)
+    {
+        $.ajax({
+                async : false,
+                type: 'post',
+                url: 'procweek.php',
+                data: $("#form1").serialize(),
+                success: function (data) {
+                    $("#processingresult").html("You successfully submitted your entry -- good luck!");
+                    $(fieldName + "Label").css('border-bottom','none');
+                    document.getElementById("form1").reset();
+                    // we reset the form
+                    getHumanVerification();
+                    $("#captcha").css('border','none');
+                }
+            });
+    }
+        
   }
   return valid;
 }

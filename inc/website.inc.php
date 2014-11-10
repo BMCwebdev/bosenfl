@@ -49,6 +49,52 @@ function getClientIPAddress()
     return $ipaddress;
 	
 }
+function getCSVDataForEnrollments()
+{
+	$mysqli = getDBConnection();
+	$myArray = array();
+	$jsonStr = "";
+	$sql = "SELECT * from sweepstakes order by submitteddate asc";
+
+	$headers = "";
+	$rows = "";
+	if ($result = $mysqli->query($sql))
+	{
+		$isFirst = true;
+		while ($fieldinfo=mysqli_fetch_field($result))
+		{
+			// add comma unless it's the first one
+			if(!$isFirst)
+				$headers .= ",";
+			// now get name
+			$headers .= $fieldinfo->name;
+			//flip isFirst
+			$isFirst = false;
+		}
+		// now add \r\n
+		$headers .= "\r\n";
+		while($row = $result->fetch_array(MYSQL_ASSOC))
+		{
+			$myArray = $row;
+			// now loop through array and add , between and \r\n at end
+			$isFirst = true;
+			$currentRow = "";
+			foreach($myArray as $value)
+			{
+				if(!$isFirst)
+					$currentRow .= ",";
+				$currentRow .= $value;
+				$isFirst = false;
+			}
+			$rows .= $currentRow . "\r\n";
+		}
+	}
+	$result->close();
+	$mysqli->close();
+	// now print out the json string
+	//$json_string = json_encode($jsonStr, JSON_PRETTY_PRINT);
+	print($headers . $rows);
+}
 
 
 
