@@ -3,7 +3,66 @@ require "dbinfo.inc.php";
 require "geoplugin.inc.php";
 require "dao-classes.inc.php";
 
-
+// determine what is available and when
+function isSweepstakesOpen($weekof)
+{
+	$allowed = false;
+	date_default_timezone_set('America/New_York');
+	switch($weekof)
+	{
+		case "week11" :
+			//11-11-2014 8am - 12pm
+			$startTime = strtotime("2014-11-10 08:00:00");
+			$endTime = strtotime("2014-11-12 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+		case "week12" :
+			//11-18-2014 8am - 12pm
+			$startTime = strtotime("2014-11-18 08:00:00");
+			$endTime = strtotime("2014-11-19 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+		case "week13" :
+			//11-24-2014 8am - 12pm
+			$startTime = strtotime("2014-11-24 08:00:00");
+			$endTime = strtotime("2014-11-25 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+		case "week14" :
+			//12-02-2014 8am - 12pm
+			$startTime = strtotime("2014-12-02 08:00:00");
+			$endTime = strtotime("2014-12-03 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+		case "week15" :
+			//12-09-2014 8am - 12pm
+			$startTime = strtotime("2014-12-09 08:00:00");
+			$endTime = strtotime("2014-12-10 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+		case "week16" :
+			//12-16-2014 8am - 12pm
+			$startTime = strtotime("2014-12-16 08:00:00");
+			$endTime = strtotime("2014-12-17 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+		case "week17" :
+			//12-22-2014 8am - 12pm
+			$startTime = strtotime("2014-12-22 08:00:00");
+			$endTime = strtotime("2014-12-23 00:00:00");
+			if(time() >= $startTime && time() <$endTime )
+				$allowed = true;
+			break;
+	}
+	
+	return $allowed;
+}
 
 // strip bad input from post vars
 function cleanStringValues($str)
@@ -97,12 +156,41 @@ function getCSVDataForEnrollments()
 }
 
 
+// function see if they already exist....
+function doesEmailAlreadyExist($email, $submittedweek)
+{
+	// only allow one per email per week...
+	$mysqli = getDBConnection();
+	$exists = false;
+	$emailexists ="";
+	/* Create a prepared statement */
+	if($stmt = $mysqli -> prepare("SELECT email FROM sweepstakes WHERE email=? and submittedweek=?")) {
+	      $stmt -> bind_param("ss", $email,$submittedweek);
+	      $stmt -> execute();
+	      $stmt -> bind_result($result);
+	      $stmt -> fetch();
+	      $emailexists = $result;
+	      $stmt -> close();
+	}
+	$mysqli->close();
+	// switching to MD5 less secure
+	if($emailexists == $email)
+	   $exists = true;
+	// this needs to return string 
+	return $exists;
+}
+
 
 // this will be the code that does the sweepstakes entry
 function storeSweepsstakeForm()
 {
 	
 	$dbConn = getDBConnection();
+	
+	
+	
+	
+	
 	// sql statement...
 	$sql = "INSERT INTO sweepstakes " .
 		"(firstname, lastname, address, city, state, " .

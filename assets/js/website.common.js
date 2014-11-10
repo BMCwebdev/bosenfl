@@ -104,18 +104,31 @@ function validateForm()
     //alert("ready to submit");
     if (valid)
     {
+        // catch all just in case it still has a border
+        $("#captcha").css('border','none');
         $.ajax({
                 async : false,
                 type: 'post',
                 url: 'procweek.php',
                 data: $("#form1").serialize(),
                 success: function (data) {
-                    $("#processingresult").html("You successfully submitted your entry -- good luck!");
-                    $(fieldName + "Label").css('border-bottom','none');
-                    document.getElementById("form1").reset();
-                    // we reset the form
-                    getHumanVerification();
-                    $("#captcha").css('border','none');
+                    
+                    // need to determine what is going on here
+                    if (0 < data.indexOf("OK"))
+                    {
+                        $("#processingresult").html("You successfully submitted your entry -- good luck!");
+                        document.getElementById("form1").reset();
+                        // we reset the form
+                        getHumanVerification();
+                        $("#captcha").css('border','none');
+                    }
+                    else if (0 < data.indexOf("Email exists"))
+                    {
+                        $("#processingresult").html("You have already successfully submitted your entry -- good luck!");
+                    }
+                    else if (0 < data.indexOf("Sweepstakes Closed")) {
+                        $("#processingresult").html("Please come back when the sweepstakes is available -- good luck!");
+                    }
                 }
             });
     }
