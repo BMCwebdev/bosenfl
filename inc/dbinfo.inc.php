@@ -42,11 +42,11 @@ function determineEnvironment()
     if($environment == "localhost" || $environment == "cnale-t420" || $environment == "127.0.0.1")
     {
         $environment = "development";
-    }else if($environment == "staging-bose-bringithome" || $environment == "staging-bose-bringithome.perfectprize.com")
+    }else if($environment == "staging" || $environment == "staging.firstandgo.com")
     {
         $environment = "staging";
     }
-    else if($environment == "bose-bringithome.perfectprize.com" || $environment == "bose-bringithome")
+    else if($environment == "www" || $environment == "www.firstandgo.com")
     {
         $environment = "production";
     }else
