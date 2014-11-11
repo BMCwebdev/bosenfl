@@ -60,6 +60,7 @@ $captchaURL =  $_SESSION['captcha']['image_src'];
    
    $( document ).ready(function() {
     // display correct banner
+    /*
     $.ajax({
             type: 'post',
             url: '/nflbanner.php',
@@ -69,6 +70,7 @@ $captchaURL =  $_SESSION['captcha']['image_src'];
 		image.src = "/assets/images/header_teams/" + data +".png";
             }
         });
+    */
     // generate human verification
     //getHumanVerification();
     
@@ -96,7 +98,7 @@ $captchaURL =  $_SESSION['captcha']['image_src'];
 				<img src="/assets/images/header_text/header_week11_wider.png" />
 			</div>
 			<div class="header_teams col-sm-6 col-xs-12">
-				<img id="nflbanner" name="nflbanner" src="/assets/images/header_teams/nfl.png" alt="nfl" />
+				<img id="nflbanner" name="nflbanner" src="<?php print($bannerURL);?>" alt="nfl" />
 			</div>
 		</div>
 		
