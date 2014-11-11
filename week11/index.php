@@ -7,7 +7,7 @@ print("<meta http-equiv=\"refresh\" content=\"0;url=sweepstakes.html\">");
 }
 else
 {
-  print("<meta http-equiv=\"refresh\" content=\"0;url=\index2.html\">");
+  print("<meta http-equiv=\"refresh\" content=\"0;url=\index.html\">");
   
 }
 
