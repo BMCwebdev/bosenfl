@@ -83,7 +83,10 @@ function validateForm()
             $("#emailconfirm").css('border-bottom','2px solid red');
     }
   }
+  
   if (valid) {
+  
+    /*
     $.ajax({
             async : false,
             type: 'post',
@@ -100,12 +103,12 @@ function validateForm()
                 }
             }
         });
-    
+        */
     //alert("ready to submit");
     if (valid)
     {
         // catch all just in case it still has a border
-        $("#captcha").css('border','none');
+        //$("#captcha").css('border','none');
         $.ajax({
                 async : false,
                 type: 'post',
@@ -120,8 +123,8 @@ function validateForm()
 	                    $("#processingresult").css({"color":"#e1e000", "font-family":"bose_gothic_screenMdOb", "font-size":"24px", "display":"inline-block"})
                         document.getElementById("form1").reset();
                         // we reset the form
-                        getHumanVerification();
-                        $("#captcha").css('border','none');
+                        //getHumanVerification();
+                        //$("#captcha").css('border','none');
                     }
                     else if (0 < data.indexOf("Email exists"))
                     {

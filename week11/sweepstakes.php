@@ -5,6 +5,22 @@ if(!isSweepstakesOpen("week11"))
   print("<meta http-equiv=\"refresh\" content=\"0;url=\index.html\">");
   die();
 }
+// should convert this to do the captcha and banner without making ajax calls to simplify
+
+// get banner ...
+$banner = calculateCorrectNFLTeamBanner();
+$bannerURL = sprintf("/assets/images/header_teams/%s.png", $banner);
+
+/*
+// get captcha
+session_start();
+$_SESSION = array();
+include("simple-php-captcha.php");
+$_SESSION['captcha'] = simple_php_captcha();
+$captchaURL =  $_SESSION['captcha']['image_src'];
+
+// that's it.....
+*/
 
 ?>
 
@@ -54,7 +70,7 @@ if(!isSweepstakesOpen("week11"))
             }
         });
     // generate human verification
-    getHumanVerification();
+    //getHumanVerification();
     
     
     
@@ -262,12 +278,14 @@ if(!isSweepstakesOpen("week11"))
 							    </label>
 						    </div>
 					    </div>
+					    <!--
 					    <div class="form-group">
 					      <div class="col-xs-12" style="padding-top:15px;"><img id="humanverify" name="humanverify" src="/assets/images/captcha.png" alt="captcha" width="150" height="50"></div>
 					    </div>
 					    <div class="form-group">
 					      <div class="col-xs-12"><input type="text" class="form-control" id="captcha" name="captcha" placeholder="**Please type the characters above in this box" value=""/></div>
 					    </div>
+					    -->
 					    <div class="form-group">
 					      <div class="col-xs-12">
 						      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="padding-left: 0px;">
