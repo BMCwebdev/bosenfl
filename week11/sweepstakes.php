@@ -57,26 +57,8 @@ $captchaURL =  $_SESSION['captcha']['image_src'];
     <script src="/assets/js/jquery-2.1.1.min.js" type="text/javascript" language="javascript"></script>
     <script src="/assets/js/website.common.js" type="text/javascript" language="javascript"></script>
     <script language="javascript" type="text/javascript">
-   
-   $( document ).ready(function() {
-    // display correct banner
-    /*
-    $.ajax({
-            type: 'post',
-            url: '/nflbanner.php',
-            //data: $("#form1").serialize(),
-            success: function (data) {
-	        var image = document.getElementById("nflbanner");
-		image.src = "/assets/images/header_teams/" + data +".png";
-            }
-        });
-    */
-    // generate human verification
-    //getHumanVerification();
-    
-    
-    
-});   
+    $( document ).ready(function() {
+    });   
       
     </script>
   </head>
