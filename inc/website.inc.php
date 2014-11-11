@@ -12,7 +12,7 @@ function isSweepstakesOpen($weekof)
 	{
 		case "week11" :
 			//11-11-2014 8am - 12pm
-			$startTime = strtotime("2014-11-10 07:30:00");
+			$startTime = strtotime("2014-11-11 07:30:00");
 			$endTime = strtotime("2014-11-12 00:00:00");
 			if(time() >= $startTime && time() <$endTime )
 				$allowed = true;
