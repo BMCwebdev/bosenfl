@@ -180,7 +180,24 @@ function doesEmailAlreadyExist($email, $submittedweek)
 	return $exists;
 }
 
-
+function getTotalEnrollmentsByWeek($weekof)
+{
+	$mysqli = getDBConnection();
+	$exists = false;
+	$totalEnrollments ="";
+	/* Create a prepared statement */
+	if($stmt = $mysqli -> prepare("SELECT count(email) FROM sweepstakes WHERE submittedweek=?")) {
+	      $stmt -> bind_param("s", $weekof);
+	      $stmt -> execute();
+	      $stmt -> bind_result($result);
+	      $stmt -> fetch();
+	      $totalEnrollments = $result;
+	      $stmt -> close();
+	}
+	$mysqli->close();
+	return $totalEnrollments;
+	
+}
 // this will be the code that does the sweepstakes entry
 function storeSweepsstakeForm()
 {
