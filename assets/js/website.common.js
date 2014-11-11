@@ -131,7 +131,7 @@ function validateForm()
                     }
                     else if (0 < data.indexOf("Sweepstakes Closed")) {
                         $("#processingresult").html("Please come back when the sweepstakes is available -- good luck!");
-                        $("#processingresult").css({"color":"#e1e000", "font-family":"bose_gothic_screenMdOb", "font-size":"24px", "display":"inline-block"})
+                        Al$("#processingresult").css({"color":"#e1e000", "font-family":"bose_gothic_screenMdOb", "font-size":"24px", "display":"inline-block"})
 
                     }
                 }
